@@ -31,12 +31,12 @@ public class Stan_Operation {
     }
 
     double sqrt(double o1) {
-        result = (double) Math.sqrt(o1);
+        result = Math.sqrt(o1);
         return result;
     }
 
     double curt(double o1) {
-        result = (double) Math.cbrt(o1);
+        result = Math.cbrt(o1);
         return result;
     }
 
@@ -46,7 +46,7 @@ public class Stan_Operation {
     }
 
     double pw(double o1, double o2) {
-        result = (double) Math.pow(o1, o2);
+        result = Math.pow(o1, o2);
         return result;
     }
 
@@ -153,7 +153,7 @@ public class Stan_Operation {
                         display();
                         break;
                     case 9:
-                        operation = "Log";
+                        operation = "Log (base e)";
                         o = "log";
                         userInput();
                         ln(op1);
