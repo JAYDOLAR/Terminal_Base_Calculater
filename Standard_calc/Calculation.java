@@ -5,11 +5,11 @@ public class Calculation {
     // in the txt file as a history...
     private double operand1;
     private double operand2;
-    private char operator;
+    private String operator;
     private double result;
     private String operation_to;
 
-    public Calculation(String operation, double op1, double op2, char o, double result) {
+    public Calculation(String operation, double op1, double op2, String o, double result) {
         // Assigning value to new private variable from the Stan_operation.java file..
         this.operand1 = op1;
         this.operand2 = op2;
@@ -19,8 +19,10 @@ public class Calculation {
     }
 
     public String toString() {
-        if (operator == '√' || operator == '∛') {
-            return operation_to + " of : " + operand1 + " " + operator + " = " + result;
+        if (operator.equals("√") || operator.equals("3√")) {
+            return operation_to + " of : " + operator + " " + operand1 + " = " + result;
+        } else if (operator.equals("log")) {
+            return operation_to + " is : " + operator + " ( " + operand1 + " ) = " + result;
         }
         // Generate a string representation of the calculation
         return operation_to + " of : " + operand1 + " " + operator + " " + operand2 + " = " + result;

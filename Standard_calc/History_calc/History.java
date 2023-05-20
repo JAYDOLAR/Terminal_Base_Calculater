@@ -15,7 +15,7 @@ public class History {
         currentIndex = 0;
     }
 
-    public void addCalculation(String operation, double operand1, double operand2, char operator, double result) {
+    public void addCalculation(String operation, double operand1, double operand2, String operator, double result) {
         if (currentIndex < history.length) {
             Calculation calculation = new Calculation(operation, operand1, operand2, operator, result);
             history[currentIndex] = calculation;
