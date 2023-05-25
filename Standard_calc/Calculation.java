@@ -21,7 +21,9 @@ public class Calculation {
     public String toString() {
         if (operator.equals("√") || operator.equals("3√")) {
             return operation_to + " of : " + operator + " " + operand1 + " = " + result;
-        } else if (operator.equals("log")) {
+        } else if (operator.equals("log") || operator.equals("sin") || operator.equals("cos")
+                || operator.equals("tan") || operator.equals("cosec") || operator.equals("sec")
+                || operator.equals("cot") || operator.equals("fact")) {
             return operation_to + " is : " + operator + " ( " + operand1 + " ) = " + result;
         }
         // Generate a string representation of the calculation
