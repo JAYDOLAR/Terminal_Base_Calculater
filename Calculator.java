@@ -14,7 +14,7 @@ public class Calculator {
         do {
             // Display calculator menu
             System.out.println("\nCalculator Menu:");
-            System.out.println("1. Standard Calculator\n2. Scientific Calculator\n3. Programmer Calculator\n4. Exit");
+            System.out.println("1. Standard Calculator\n2. Exit");
             System.out.print("\nEnter your choice: ");
             choice = scanner.nextInt();
 
@@ -24,16 +24,12 @@ public class Calculator {
                     operation.menuForStandard();
                     break;
                 case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
                     System.out.println("\nExiting the program. Goodbye!");
                     break;
                 default:
                     System.out.println("\nInvalid choice. Please try again.");
             }
-        } while (choice != 4);
+        } while (choice != 2);
 
         scanner.close();
     }

@@ -3,10 +3,10 @@ package Standard_calc;
 import java.util.Scanner;
 import java.lang.Math;
 
-public class Stan_Operation {
+class submenuforoperation {
 
     double op1, op2, result, reminder;
-    String operation, o;
+    String operation, o =" ";
     Scanner sc = new Scanner(System.in);
 
     double sum(double o1, double o2) {
@@ -79,7 +79,8 @@ public class Stan_Operation {
         }
         System.out.println("_______________");
     }
-
+}
+public class Stan_Operation extends submenuforoperation{
     public void menuForStandard() {
         boolean exit = false;
         while (!exit) {
