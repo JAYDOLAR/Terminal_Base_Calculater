@@ -4,7 +4,7 @@ import Standard_calc.Calculation;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
+//import java.io.PrintWriter;
 
 public class History {
     private Calculation[] history;
@@ -26,10 +26,12 @@ public class History {
     }
 
     public void saveHistoryToFile() {
-        try (PrintWriter writer = new PrintWriter(new FileWriter("history.txt"))) {
+        try {
+            FileWriter writer = new FileWriter("history.txt");
             for (int i = 0; i < currentIndex; i++) {
-                writer.println(history[i]);
+                writer.write(history[i].toString() + "\n");
             }
+            writer.close();
             System.out.println("History saved to history.txt.");
         } catch (IOException e) {
             System.out.println("Failed to save history to file.");

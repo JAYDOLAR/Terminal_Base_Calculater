@@ -1,11 +1,14 @@
 package Standard_calc;
 
 import java.util.Scanner;
+
+import Standard_calc.History_calc.History;
+
 import java.lang.Math;
 
 class submenuforoperation {
 
-    double op1, op2, result, reminder;
+    double op1, op2, result = 1, reminder;
     String operation, o = " ";
     Scanner sc = new Scanner(System.in);
 
@@ -86,10 +89,8 @@ class submenuforoperation {
     }
 
     double fact(double o1){
-        long fact = 1;
         for(int i = 1; i <= o1; i++) {
-            fact = fact * i;
-            result = fact;
+            result *= i;
         }
         return result;
     }
@@ -124,6 +125,7 @@ class submenuforoperation {
 public class Stan_Operation extends submenuforoperation {
     public void menuForStandard() {
         boolean exit = false;
+        History h = new History();
         while (!exit) {
             try {
                 // menu for the user to choice there operation..
@@ -140,6 +142,8 @@ public class Stan_Operation extends submenuforoperation {
                         sum(op1, op2);// call the methode to performed the Addition of op1 and op2..
                         o = "+";
                         display();// call the funtion to display result..
+                        h.addCalculation(operation, op1, op2, o, result);
+                        h.saveHistoryToFile();
                         break;
                     case 2:
                         operation = "Subtraction";
@@ -147,6 +151,8 @@ public class Stan_Operation extends submenuforoperation {
                         sub(op1, op2);// call the methode to performed the Subtraction of op1 and op2..
                         o = "-";
                         display();// call the funtion to display result..
+                        h.addCalculation(operation, op1, op2, o, result);
+                        h.saveHistoryToFile();
                         break;
                     case 3:
                         operation = "Multiplication";
@@ -154,6 +160,8 @@ public class Stan_Operation extends submenuforoperation {
                         mult(op1, op2);// call the methode to performed the Multiplication of op1 and op2..
                         o = "*";
                         display();// call the funtion to display result..
+                        h.addCalculation(operation, op1, op2, o, result);
+                        h.saveHistoryToFile();
                         break;
                     case 4:
                         operation = "Division";
@@ -165,6 +173,8 @@ public class Stan_Operation extends submenuforoperation {
                             div(op1, op2);// call the methode to performed the Divisio of op1 and op2..
                             o = "/";
                             display();// call the funtion to display result..
+                            h.addCalculation(operation, op1, op2, o, result);
+                            h.saveHistoryToFile();
                             break;
                         }
                     case 5:
@@ -173,6 +183,8 @@ public class Stan_Operation extends submenuforoperation {
                         userInput();
                         sqrt(op1);
                         display();
+                        h.addCalculation(operation, op1, op2, o, result);
+                        h.saveHistoryToFile();
                         break;
                     case 6:
                         operation = "Cube Root";
@@ -180,6 +192,8 @@ public class Stan_Operation extends submenuforoperation {
                         userInput();
                         curt(op1);
                         display();
+                        h.addCalculation(operation, op1, op2, o, result);
+                        h.saveHistoryToFile();
                         break;
                     case 7:
                         operation = "nth Root";
@@ -187,6 +201,8 @@ public class Stan_Operation extends submenuforoperation {
                         userInput();
                         nroot(op1, op2);
                         display();
+                        h.addCalculation(operation, op1, op2, o, result);
+                        h.saveHistoryToFile();
                         break;
                     case 8:
                         operation = "Power";
@@ -194,6 +210,8 @@ public class Stan_Operation extends submenuforoperation {
                         userInput();
                         pw(op1, op2);
                         display();
+                        h.addCalculation(operation, op1, op2, o, result);
+                        h.saveHistoryToFile();
                         break;
                     case 9:
                         operation = "Log (base e)";
@@ -201,6 +219,8 @@ public class Stan_Operation extends submenuforoperation {
                         userInput();
                         ln(op1);
                         display();
+                        h.addCalculation(operation, op1, op2, o, result);
+                        h.saveHistoryToFile();
                         break;
                     case 10:
                         operation = "Factorial";
@@ -208,6 +228,8 @@ public class Stan_Operation extends submenuforoperation {
                         userInput();
                         fact(op1);
                         display();
+                        h.addCalculation(operation, op1, op2, o, result);
+                        h.saveHistoryToFile();
                         break;
                     case 11:
                         while (!exit) {
@@ -222,6 +244,8 @@ public class Stan_Operation extends submenuforoperation {
                                     userInput();
                                     sin(op1);
                                     display();
+                                    h.addCalculation(operation, op1, op2, o, result);
+                                    h.saveHistoryToFile();
                                     break;
                                 case 2:
                                     operation = "Cos";
@@ -229,6 +253,8 @@ public class Stan_Operation extends submenuforoperation {
                                     userInput();
                                     cos(op1);
                                     display();
+                                    h.addCalculation(operation, op1, op2, o, result);
+                                    h.saveHistoryToFile();
                                     break;
                                 case 3:
                                     operation = "Tan";
@@ -236,6 +262,8 @@ public class Stan_Operation extends submenuforoperation {
                                     userInput();
                                     tan(op1);
                                     display();
+                                    h.addCalculation(operation, op1, op2, o, result);
+                                    h.saveHistoryToFile();
                                     break;
                                 case 4:
                                     operation = "Cosec";
@@ -243,6 +271,8 @@ public class Stan_Operation extends submenuforoperation {
                                     userInput();
                                     cosec(op1);
                                     display();
+                                    h.addCalculation(operation, op1, op2, o, result);
+                                    h.saveHistoryToFile();
                                     break;
                                 case 5:
                                     operation = "Sec";
@@ -250,6 +280,8 @@ public class Stan_Operation extends submenuforoperation {
                                     userInput();
                                     sec(op1);
                                     display();
+                                    h.addCalculation(operation, op1, op2, o, result);
+                                    h.saveHistoryToFile();
                                     break;
                                 case 6:
                                     operation = "Cot";
@@ -257,6 +289,8 @@ public class Stan_Operation extends submenuforoperation {
                                     userInput();
                                     cot(op1);
                                     display();
+                                    h.addCalculation(operation, op1, op2, o, result);
+                                    h.saveHistoryToFile();
                                     break;
                                 case 7:
                                     exit = true;
