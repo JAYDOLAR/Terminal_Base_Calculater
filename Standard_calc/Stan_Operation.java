@@ -88,8 +88,8 @@ class submenuforoperation {
         return result;
     }
 
-    double fact(double o1){
-        for(int i = 1; i <= o1; i++) {
+    double fact(double o1) {
+        for (int i = 1; i <= o1; i++) {
             result *= i;
         }
         return result;
