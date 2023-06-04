@@ -128,7 +128,7 @@ public class Stan_Operation extends submenuforoperation {
         History h = new History();
         while (!exit) {
             try {
-                // menu for the user to choice there operation..
+                // menu for the user to choose their operation..
                 System.out.println("\nCalculator Menu:");
                 System.out.println(
                         "1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Square Root\n6. Cube Root\n7. nth Root\n8. Power\n9. Log\n10.Factorial(n!)\n11.TRIGONOMETRIC_OPERATION\n12.Exit");
@@ -138,41 +138,41 @@ public class Stan_Operation extends submenuforoperation {
                 switch (choice) {
                     case 1:
                         operation = "Addition";
-                        userInput();// call the methode to input from user..
-                        sum(op1, op2);// call the methode to performed the Addition of op1 and op2..
+                        userInput();// call the method to input from the user..
+                        sum(op1, op2);// call the method to perform the Addition of op1 and op2..
                         o = "+";
-                        display();// call the funtion to display result..
+                        display();// call the function to display the result..
                         h.addCalculation(operation, op1, op2, o, result);
                         h.saveHistoryToFile();
                         break;
                     case 2:
                         operation = "Subtraction";
-                        userInput();// call the methode to input from user
-                        sub(op1, op2);// call the methode to performed the Subtraction of op1 and op2..
+                        userInput();// call the method to input from the user
+                        sub(op1, op2);// call the method to perform the Subtraction of op1 and op2..
                         o = "-";
-                        display();// call the funtion to display result..
+                        display();// call the function to display the result..
                         h.addCalculation(operation, op1, op2, o, result);
                         h.saveHistoryToFile();
                         break;
                     case 3:
                         operation = "Multiplication";
-                        userInput();// call the methode to input from user
-                        mult(op1, op2);// call the methode to performed the Multiplication of op1 and op2..
+                        userInput();// call the method to input from the user
+                        mult(op1, op2);// call the method to perform the Multiplication of op1 and op2..
                         o = "*";
-                        display();// call the funtion to display result..
+                        display();// call the function to display the result..
                         h.addCalculation(operation, op1, op2, o, result);
                         h.saveHistoryToFile();
                         break;
                     case 4:
                         operation = "Division";
-                        userInput();// call the methode to input from user
+                        userInput();// call the method to input from the user
                         if (op2 == 0) {
-                            // when any value is zero then it will throw an error..
+                            // when any value is zero, it will throw an error..
                             throw new ArithmeticException("Error: Cannot divide by zero.");
                         } else {
-                            div(op1, op2);// call the methode to performed the Divisio of op1 and op2..
+                            div(op1, op2);// call the method to perform the Division of op1 and op2..
                             o = "/";
-                            display();// call the funtion to display result..
+                            display();// call the function to display the result..
                             h.addCalculation(operation, op1, op2, o, result);
                             h.saveHistoryToFile();
                             break;
