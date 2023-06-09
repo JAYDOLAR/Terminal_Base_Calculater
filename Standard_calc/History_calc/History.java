@@ -2,9 +2,10 @@ package Standard_calc.History_calc;
 
 import Standard_calc.Calculation;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-//import java.io.PrintWriter;
 
 public class History {
     private Calculation[] history;
@@ -35,6 +36,20 @@ public class History {
             System.out.println("History saved to history.txt.");
         } catch (IOException e) {
             System.out.println("Failed to save history to file.");
+            e.printStackTrace();
+        }
+    }
+
+    public void displayHistoryFile() {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("history.txt"));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println("\nHistory :- \n\n" + line);
+            }
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("Failed to read history from file.");
             e.printStackTrace();
         }
     }
