@@ -28,7 +28,7 @@ public class History {
 
     public void saveHistoryToFile() {
         try {
-            FileWriter writer = new FileWriter("history.txt");
+            FileWriter writer = new FileWriter("history.txt", true);
             for (int i = 0; i < currentIndex; i++) {
                 writer.write(history[i].toString() + "\n");
             }
