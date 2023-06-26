@@ -3,9 +3,11 @@ package Standard_calc.History_calc;
 import Standard_calc.Calculation;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class History {
     private Calculation[] history;
@@ -27,12 +29,32 @@ public class History {
     }
 
     public void saveHistoryToFile() {
+        // try {
+        // FileWriter writer = new FileWriter("history.txt", true);
+        // for (int i = 0; i < currentIndex; i++) {
+        // writer.write(history[i].toString() + "\n");
+        // }
+        // writer.close();
+        // System.out.println("History saved to history.txt.");
+        // } catch (IOException e) {
+        // System.out.println("Failed to save history to file.");
+        // e.printStackTrace();
+        // }
+
         try {
-            FileWriter writer = new FileWriter("history.txt", true);
-            for (int i = 0; i < currentIndex; i++) {
-                writer.write(history[i].toString() + "\n");
-            }
+            PrintWriter writer = new PrintWriter("history.txt");
             writer.close();
+            FileWriter fileWriter = new FileWriter("history.txt", true);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
+            // Write the history to the file
+            for (int i = 0; i < currentIndex; i++) {
+                bufferedWriter.write(history[i].toString());
+                bufferedWriter.newLine();
+            }
+
+            bufferedWriter.close();
+            fileWriter.close();
             System.out.println("History saved to history.txt.");
         } catch (IOException e) {
             System.out.println("Failed to save history to file.");
@@ -41,15 +63,29 @@ public class History {
     }
 
     public void displayHistoryFile() {
+        // try {
+        // BufferedReader reader = new BufferedReader(new FileReader("history.txt"));
+        // String line;
+        // while ((line = reader.readLine()) != null) {
+        // System.out.println("\nHistory :- \n\n" + line);
+        // }
+        // reader.close();
+        // } catch (IOException e) {
+        // System.out.println("Failed to read history from file.");
+        // e.printStackTrace();
+        // }
+
+        System.out.println("\nHistory :-");
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("history.txt"));
+            FileReader fileReader = new FileReader("history.txt");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line;
-            while ((line = reader.readLine()) != null) {
-                System.out.println("\nHistory :- \n\n" + line);
+            while ((line = bufferedReader.readLine()) != null) {
+                System.out.println(line);
             }
-            reader.close();
+            bufferedReader.close();
+            fileReader.close();
         } catch (IOException e) {
-            System.out.println("Failed to read history from file.");
             e.printStackTrace();
         }
     }

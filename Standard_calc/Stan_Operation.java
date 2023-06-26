@@ -8,7 +8,7 @@ import java.lang.Math;
 
 class submenuforoperation {
 
-    double op1, op2, result = 1, reminder;
+    double op1, op2, result , reminder = 0;
     String operation, o = " ";
     Scanner sc = new Scanner(System.in);
 
@@ -48,7 +48,7 @@ class submenuforoperation {
         return result;
     }
 
-    double pw(double o1, double o2) {
+    public double pw(double o1, double o2) {
         result = Math.pow(o1, o2);
         return result;
     }
@@ -89,6 +89,7 @@ class submenuforoperation {
     }
 
     double fact(double o1) {
+        result = 1;
         for (int i = 1; i <= o1; i++) {
             result *= i;
         }
@@ -166,7 +167,7 @@ public class Stan_Operation extends submenuforoperation {
                     case 4:
                         operation = "Division";
                         userInput();// call the method to input from the user
-                        if (op2 == 0) {
+                        if (op2 == 0 && op1 == 0) {
                             // when any value is zero, it will throw an error..
                             throw new ArithmeticException("Error: Cannot divide by zero.");
                         } else {
@@ -296,10 +297,11 @@ public class Stan_Operation extends submenuforoperation {
                                     exit = true;
                                     break;
                                 default:
-                                    System.out.println("\nInvalid choice.\n");
+                                    System.out.println("\nInvalid choice. Please enter a valid trigonometric operation. \n");
                                     break;
                             }
                         }
+                        break;
                     case 12:
                         exit = true;
                         break;
